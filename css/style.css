@@ -61,6 +61,7 @@ ul {
   text-decoration: none;
   color: var(--dark-color);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .link.contacts {
@@ -72,6 +73,17 @@ ul {
 .link:focus,
 .link.current {
   color: var(--active);
+}
+
+.current:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--active);
+  left: 0;
+  bottom: -40px;
 }
 
 .logo-info {
@@ -161,6 +173,7 @@ ul {
   border-radius: 4px;
   border-style: none;
   padding: 10px 32px;
+  outline: none;
 }
 
 .section {
@@ -456,6 +469,34 @@ img {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.card-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--active);
+  outline: transparent;
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+}
+
+.card-box:hover .card-overlay {
+  transform: translateX(0);
+}
+
+.card-overlay > p {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--white);
+  padding: 63px 24px;
+  margin: 0;
+}
 .title-position {
   padding-top: 20px;
   padding-left: 24px;
@@ -468,6 +509,7 @@ img {
   letter-spacing: 0.06em;
   color: var(--dark-color);
   margin-bottom: 4px;
+  margin-top: 0;
 }
 
 .portfolio-description {
@@ -496,7 +538,7 @@ img {
 
 .button:hover,
 .button:focus,
-.button.current {
+.button.current-btn {
   background-color: var(--active);
   color: var(--white);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -521,23 +563,23 @@ img {
 }
 
 .is-hidden .modal {
-  top: -100%;
-  transform: translateX(-50%) scale(0.1);
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
   position: absolute;
-  top: 221px;
+  top: 50%;
   left: 50%;
   background-color: var(--white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transform: translateX(-50%) scale(1);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
   width: 100%;
   max-width: 528px;
   min-height: 581px;
-  transition: all 0.5s;
+  transition: 0.5s linear 0.3s;
 }
 
 .btn-close {
@@ -553,7 +595,4 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: var(--white);
-}
-
-.close-icon {
 }
