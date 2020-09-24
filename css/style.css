@@ -66,6 +66,7 @@ ul {
 
 .link.contacts {
   display: flex;
+  align-items: center;
   color: var(--main-color);
 }
 
@@ -119,6 +120,10 @@ ul {
 .nav {
   align-items: center;
   margin-right: auto;
+}
+
+.contacts-info {
+  align-items: center;
 }
 
 .menu-nav:not(:last-child) {
@@ -498,8 +503,7 @@ img {
   margin: 0;
 }
 .title-position {
-  padding-top: 20px;
-  padding-left: 24px;
+  padding: 20px 24px;
 }
 
 .portfolio-title {
